@@ -10,8 +10,19 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  margin: 0;
 }
 .page-header {
-  margin-left: auto;
-  margin-right: auto;
+  background-color: rgb(17, 81, 201);
+  height: 40px;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  height: 40px;
+}
+
+.search-form {
+  margin: auto;
 }
