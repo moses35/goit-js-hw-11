@@ -51,4 +51,5 @@ function clearGallery() {
   gallery.innerHTML = '';
 }
 
+//export
 export { gallery, loadBtn, observer };
