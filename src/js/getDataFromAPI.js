@@ -4,8 +4,10 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { createMarkup } from './createCards';
-import { gallery, loadBtn } from './index';
+import { gallery, loadBtn, observer } from './index';
 import { onLoadStop } from './btnAnimated';
+
+const guard = document.querySelector('.js-guard');
 
 const url = `https://pixabay.com/api/`;
 
@@ -40,7 +42,7 @@ class GetData {
         //create gallery
         const markup = createMarkup(response.data.hits);
         gallery.insertAdjacentHTML('beforeend', markup);
-
+        observer.observe(guard);
         //after gallery create
         lightbox.refresh();
         this.page += 1;
@@ -69,6 +71,7 @@ class GetData {
           Notiflix.Notify.failure(
             `We're sorry, but you've reached the end of search results.`
           );
+          observer.unobserve(guard);
           loadBtn.classList.add('visually-hidden');
         }
       }
@@ -98,4 +101,4 @@ let lightbox = new SimpleLightbox('.gallery a', {
   /* options */
   captionDelay: 250,
 });
-export { GetData };
+export { GetData, guard };
