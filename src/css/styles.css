@@ -83,9 +83,6 @@ img {
 }
 .animated {
   animation: pulse 1000ms infinite;
-  background-color: rgb(17, 81, 201);
-  border: transparent;
-  border-radius: 4%;
 }
 
 @keyframes pulse {

@@ -1,3 +1,4 @@
+//create markup
 function createMarkup(data) {
   return data
     .map(
@@ -11,23 +12,29 @@ function createMarkup(data) {
         downloads,
       }) => {
         return `<div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+         <a class="gallery__link" href="${largeImageURL}">
+  <img src="${
+    webformatURL
+      ? webformatURL
+      : `https://site.cndl.org.br/wp-content/uploads/404.jpg`
+  }" alt="${tags}" loading="lazy" />
+  </a>
   <div class="info">
     <p class="info-item">
     <b>Likes</b>
-      ${likes}
+      ${likes || 'Not found'}
     </p>
     <p class="info-item">
     <b>Views</b>
-      ${views}
+      ${views || 'Not found'}
     </p>
     <p class="info-item">
     <b>Comments</b>
-      ${comments}
+      ${comments || 'Not found'}
     </p>
     <p class="info-item">
     <b>Downloads</b>
-      ${downloads}
+      ${downloads || 'Not found'}
     </p>
   </div>
 </div>`;

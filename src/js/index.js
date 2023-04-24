@@ -1,5 +1,7 @@
+import Notiflix from 'notiflix';
 import { GetData } from './getDataFromAPI';
 import { onLoadActive } from './btnAnimated';
+
 const form = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const loadBtn = document.querySelector('.load-more');
@@ -9,8 +11,10 @@ loadBtn.addEventListener('click', onLoadMore);
 
 const searchData = new GetData();
 
+//on form submit
 function onFormSubmit(evt) {
   evt.preventDefault();
+  searchData.onSeachClick += 1;
   searchData.numberOfCards = 0;
   loadBtn.classList.add('visually-hidden');
   clearGallery();
@@ -19,11 +23,13 @@ function onFormSubmit(evt) {
   searchData.getResponse();
 }
 
+//om load more btn click
 function onLoadMore() {
   onLoadActive();
   searchData.getResponse();
 }
 
+//clear gallery
 function clearGallery() {
   gallery.innerHTML = '';
 }
