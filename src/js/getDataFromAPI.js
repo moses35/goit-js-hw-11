@@ -53,7 +53,7 @@ class GetData {
         //show total hits
         this.totalHits = response.data.totalHits;
         if (this.onSeachClick === 1) {
-          Notiflix.Notify.info(`Hooray! We found ${this.totalHits} images.`);
+          Notiflix.Notify.success(`Hooray! We found ${this.totalHits} images.`);
           this.onSeachClick = 0;
         } else {
           //auto scroll after response
