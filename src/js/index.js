@@ -26,7 +26,7 @@ function onFormSubmit(evt) {
   searchData.numberOfCards = 0;
   loadBtn.classList.add('visually-hidden');
   clearGallery();
-  searchData.query = evt.currentTarget.elements.searchQuery.value;
+  searchData.query = evt.currentTarget.elements.searchQuery.value.trim();
   searchData.resetPage();
   searchData.getResponse();
 }
